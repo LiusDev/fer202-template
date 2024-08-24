@@ -1,6 +1,6 @@
 ## Run JSON Server cmd:
 
-`npx json-server --watch db.json --port 9999`
+`npx json-server --watch database.json --port 9999`
 
 > Change db.json to your database file name
 
