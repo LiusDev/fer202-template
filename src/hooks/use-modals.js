@@ -10,8 +10,8 @@ const useModals = () => {
     const modals = useContext(ModalsContext)
 
     return {
-        showModals: modals.showModals,
-        hideModals: modals.hideModals,
+        show: modals.showModals,
+        hide: modals.hideModals,
     }
 }
 

@@ -42,7 +42,7 @@ console.log(id) // 123
 
 ```
 import React from 'react';
-import useQuery from './useQuery';
+import useQuery from '../hooks/useQuery';
 
 const UserProfile = ({ userId }) => {
   const { data, loading, error, refetch } = useQuery(`/users/${userId}`);
@@ -81,7 +81,7 @@ export default UserProfile;
 
 ```
 import React from 'react';
-import useForm from './useForm';
+import useForm from '../hooks/useForm';
 
 const LoginForm = () => {
   const initialValues = { email: '', password: '' };
@@ -145,4 +145,35 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
+```
+
+## useModals demo
+
+```
+import React from 'react';
+import useModals from '../hooks/useModals';
+
+const ModalDemo = () => {
+  const modals = useModals();
+  const handleOpenModal = () => {
+    modals.show({
+      title: 'Modal Title',
+      children: 'Modal content goes here...',
+      footer: <button onClick={modals.hide}>Close Modal</button>
+    });
+  };
+
+  return (
+    <div>
+      <button onClick={toggle}>Show Modal</button>
+      {isShowing && (
+        <div>
+          <h1>Modal Title</h1>
+          <p>Modal content goes here...</p>
+          <button onClick={toggle}>Close Modal</button>
+        </div>
+      )}
+    </div>
+  );
+};
 ```
