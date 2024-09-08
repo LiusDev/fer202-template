@@ -166,13 +166,6 @@ const ModalDemo = () => {
   return (
     <div>
       <button onClick={toggle}>Show Modal</button>
-      {isShowing && (
-        <div>
-          <h1>Modal Title</h1>
-          <p>Modal content goes here...</p>
-          <button onClick={toggle}>Close Modal</button>
-        </div>
-      )}
     </div>
   );
 };
