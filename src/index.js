@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client"
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
 import HomePage from "./pages"
+import ModalsProvider from "./context/ModalsContext"
 
 const router = createBrowserRouter([
     {
@@ -24,6 +25,8 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
     <React.StrictMode>
-        <RouterProvider router={router} />
+        <ModalsProvider>
+            <RouterProvider router={router} />
+        </ModalsProvider>
     </React.StrictMode>
 )
