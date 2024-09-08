@@ -24,9 +24,20 @@ export const instance = axios.create({
 url: `localhost:3000/?name=John&age=30`
 
 ```
-const { name, age } = useQueryParams();
-console.log(name) // John
-console.log(age) // 30
+import React from 'react';
+import { useQueryParams } from '../hooks';
+
+const Home = () => {
+  const { name, age } = useQueryParams();
+  console.log(name, age); // John 30
+
+  return (
+    <div>
+      <h1>Welcome, {name}!</h1>
+      <p>You are {age} years old.</p>
+    </div>
+  );
+};
 ```
 
 ## useParams demo
@@ -34,15 +45,22 @@ console.log(age) // 30
 url: `localhost:3000/users/123`
 
 ```
-const { id } = useParams(); // id is the name of the parameter in the URL, config in root component (index.js)
-console.log(id) // 123
+import React from 'react';
+import { useParams } from '../hooks';
+
+const UserProfile = () => {
+  const { id } = useParams();
+  console.log(id); // 123
+
+  return <div>User Profile</div>;
+};
 ```
 
 ## useQuery demo
 
 ```
 import React from 'react';
-import useQuery from '../hooks/useQuery';
+import { useQuery } from '../hooks';
 
 const UserProfile = ({ userId }) => {
   const { data, loading, error, refetch } = useQuery(`/users/${userId}`);
@@ -81,7 +99,7 @@ export default UserProfile;
 
 ```
 import React from 'react';
-import useForm from '../hooks/useForm';
+import { useForm } from '../hooks';
 
 const LoginForm = () => {
   const initialValues = { email: '', password: '' };
@@ -151,7 +169,7 @@ export default LoginForm;
 
 ```
 import React from 'react';
-import useModals from '../hooks/useModals';
+import { useModals } from '../hooks';
 
 const ModalDemo = () => {
   const modals = useModals();
